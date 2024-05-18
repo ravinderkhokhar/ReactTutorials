@@ -6,7 +6,7 @@ import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import React, {useState} from 'react';
 // import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 function App() {
   const [mode, setMode] = useState('light');
   const [mode1, setMode1] = useState('dark');
@@ -65,14 +65,45 @@ function App() {
         document.title = 'TextUtils - light Mode';
       }
   }
+
+  const toogleMode1 =()=>{
+    console.log(mode);
+      if(mode === 'light'){
+        setMode('dark');
+        setMode1('light');
+        document.body.style.backgroundColor='#005B88';
+        //document.getElementById("navbar").style.backgroundColor='#011E49';
+        // document.getElementById("uperBtn").style.backgroundColor='#011E49';
+        // document.getElementById("uperBtn").style.color='#ffffff';
+        // document.getElementById("lowerBtn").style.backgroundColor='#011E49';
+        // document.getElementById("lowerBtn").style.color='#ffffff';
+        // document.getElementById("clearBtn").style.backgroundColor='#011E49';
+        // document.getElementById("clearBtn").style.color='#ffffff';
+        showAlert("Blue Mode has been enabled","success");
+        document.title = 'TextUtils - dark Mode';
+        setInterval(() => {
+          document.title = 'TextUtils is Amazing Application';
+        }, 2000);
+        setInterval(() => {
+          document.title = 'TextUtils is just Wow!';
+        }, 1500);
+      } else {
+        setMode('light');
+        setMode1('dark');
+        document.body.style.backgroundColor='#ffffff';
+        showAlert("Light Mode has been enabled","success");
+        document.title = 'TextUtils - light Mode';
+      }
+  }
   return (
     <>
     <Router>
-    <Navbar title="TextUtils" aboutTxt="About TextUtils" mode={mode} txtMode={mode1} toogleMode={toogleMode}/>
+    <Navbar title="TextUtils" aboutTxt="About TextUtils" mode={mode} txtMode={mode1} toogleMode={toogleMode} toogleMode1={toogleMode1}/>
     <Alert alert={alert}/>
     <div className="container my-3">
+    {/* <TextForm showAlert={showAlert} heading="Enter the text for analysis below" txtMode={mode1}/> */}
       <Routes>          
-          <Route exact path="/about" element={<About />} />
+          <Route exact path="/about" element={<About  mode={mode}/>} />
           {/* <Route exact path="/about" ><About /></Route> */}
           <Route exact path="/" element={<TextForm showAlert={showAlert} heading="Enter the text for analysis below" txtMode={mode1}/>} />
       </Routes>
