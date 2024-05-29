@@ -66,19 +66,22 @@ function App() {
       }
   }
 
-  const toogleMode1 =()=>{
-    console.log(mode);
+  const removeBodyClasses = ()=>{
+    document.body.classList.remove('bg-primary');
+    document.body.classList.remove('bg-dark');
+    document.body.classList.remove('bg-warning');
+    document.body.classList.remove('bg-danger');
+    document.body.classList.remove('bg-light');
+    document.body.classList.remove('bg-success');
+  }
+  const toogleMode1 =(cls)=>{
+    removeBodyClasses();
+    console.log(cls);
+    document.body.classList.add('bg-'+cls);
       if(mode === 'light'){
         setMode('dark');
         setMode1('light');
         document.body.style.backgroundColor='#005B88';
-        //document.getElementById("navbar").style.backgroundColor='#011E49';
-        // document.getElementById("uperBtn").style.backgroundColor='#011E49';
-        // document.getElementById("uperBtn").style.color='#ffffff';
-        // document.getElementById("lowerBtn").style.backgroundColor='#011E49';
-        // document.getElementById("lowerBtn").style.color='#ffffff';
-        // document.getElementById("clearBtn").style.backgroundColor='#011E49';
-        // document.getElementById("clearBtn").style.color='#ffffff';
         showAlert("Blue Mode has been enabled","success");
         document.title = 'TextUtils - dark Mode';
         setInterval(() => {
@@ -95,6 +98,36 @@ function App() {
         document.title = 'TextUtils - light Mode';
       }
   }
+
+  // const toogleMode1 =()=>{
+  //   console.log(mode);
+  //     if(mode === 'light'){
+  //       setMode('dark');
+  //       setMode1('light');
+  //       document.body.style.backgroundColor='#005B88';
+  //       //document.getElementById("navbar").style.backgroundColor='#011E49';
+  //       // document.getElementById("uperBtn").style.backgroundColor='#011E49';
+  //       // document.getElementById("uperBtn").style.color='#ffffff';
+  //       // document.getElementById("lowerBtn").style.backgroundColor='#011E49';
+  //       // document.getElementById("lowerBtn").style.color='#ffffff';
+  //       // document.getElementById("clearBtn").style.backgroundColor='#011E49';
+  //       // document.getElementById("clearBtn").style.color='#ffffff';
+  //       showAlert("Blue Mode has been enabled","success");
+  //       document.title = 'TextUtils - dark Mode';
+  //       setInterval(() => {
+  //         document.title = 'TextUtils is Amazing Application';
+  //       }, 2000);
+  //       setInterval(() => {
+  //         document.title = 'TextUtils is just Wow!';
+  //       }, 1500);
+  //     } else {
+  //       setMode('light');
+  //       setMode1('dark');
+  //       document.body.style.backgroundColor='#ffffff';
+  //       showAlert("Light Mode has been enabled","success");
+  //       document.title = 'TextUtils - light Mode';
+  //     }
+  // }
   return (
     <>
     <Router>

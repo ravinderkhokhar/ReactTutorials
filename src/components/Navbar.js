@@ -31,10 +31,18 @@ export default function Navbar(props) {
               <input type="button" id="btn7" className="btn btn-light" onClick={props.toogleMode} value="Light"/>
               <input type="button" id="btn8" className="btn btn-dark" onClick={props.toogleMode} value="Dark"/>
           </div>
-          { <div className={`form-check form-switch text-${props.txtMode}`}>
-            <input className="form-check-input" type="checkbox" onClick={props.toogleMode1} role="switch" id="flexSwitchCheckDefault" />
-            <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable Dark Mode</label>
-          </div> }
+          <div className="d-flex">
+            <div className="bg-primary rounded-circle mx-2" onClick={()=>{props.toogleMode1('primary')}} style={{height:'30px',width:'30px',cursor:'pointer'}}></div>
+            <div className="bg-danger rounded-circle mx-2" onClick={()=>{props.toogleMode1('danger')}} style={{height:'30px',width:'30px',cursor:'pointer'}}></div>
+            <div className="bg-success rounded-circle mx-2" onClick={()=>{props.toogleMode1('success')}} style={{height:'30px',width:'30px',cursor:'pointer'}}></div>
+            <div className="bg-warning rounded-circle mx-2" onClick={()=>{props.toogleMode1('warning')}} style={{height:'30px',width:'30px',cursor:'pointer'}}></div>
+            <div className="bg-light rounded-circle mx-2" onClick={()=>{props.toogleMode1('light')}} style={{height:'30px',width:'30px',cursor:'pointer'}}></div>
+            <div className="bg-dark rounded-circle mx-2" onClick={()=>{props.toogleMode1('dark')}} style={{height:'30px',width:'30px',cursor:'pointer'}}></div>
+          </div>
+          <div className={`form-check form-switch text-${props.txtMode}`}>
+            <input className="form-check-input" type="checkbox" onClick={()=>{props.toogleMode1(null)}} role="switch" id="flexSwitchCheckDefault" />
+            <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Toggle Mode</label>
+          </div> 
           {/* <form className="d-flex">
             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
             <button className="btn btn-primary" type="submit">Search</button>
