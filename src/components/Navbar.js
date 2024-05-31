@@ -15,11 +15,11 @@ export default function Navbar(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className={`nav-link active text-${props.txtMode}`} aria-current="page" to="/">Home</Link>
+              <Link className={`nav-link text-${props.txtMode}`} aria-current="page" to="/">Home</Link>
               {/* <a className={`nav-link active text-${props.txtMode}`} aria-current="page" href="/">Home</a> */}
             </li> 
             <li className="nav-item">
-              {<Link  className={`nav-link active text-${props.txtMode}`} to="/about">{props.aboutTxt}</Link>}
+              {<Link  className={`nav-link text-${props.txtMode}`} to="/about">{props.aboutTxt}</Link>}
               {/* <a  className={`nav-link active text-${props.txtMode}`} href="/about">{props.aboutTxt}</a> */}
             </li>
           </ul>
